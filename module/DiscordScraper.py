@@ -123,7 +123,7 @@ class DiscordScraper(object):
         if apiversion is None:
             
             # Set it to the default value of "v8"
-            apiversion = 'v8'
+            apiversion = 'v9'
         
         # Generate a direct file path to the configuration file.
         configfile = path.join(getcwd(), configfile)
@@ -159,8 +159,8 @@ class DiscordScraper(object):
         
         # Create a dictionary to store the HTTP request headers that we will be using for all requests.
         self.headers = {
-            'User-Agent': config.useragent,    # The user-agent string that tells the server which browser, operating system, and rendering engine we're using.
-            'Authorization': tokenfiledata     # The authorization token that authorizes this script to carry out actions with your account, this script only requires this to access the data on the specified guilds and channels for scraping purposes. NEVER UNDER ANY CIRCUMSTANCE SHARE THIS VALUE TO ANYONE YOU DO NOT TRUST!
+            'User-Agent': "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.309 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36",    # The user-agent string that tells the server which browser, operating system, and rendering engine we're using.
+            'Authorization': f"{tokenfiledata}"    # The authorization token that authorizes this script to carry out actions with your account, this script only requires this to access the data on the specified guilds and channels for scraping purposes. NEVER UNDER ANY CIRCUMSTANCE SHARE THIS VALUE TO ANYONE YOU DO NOT TRUST!
         }
 
         # Create some class variables to store the configuration file data.
@@ -643,3 +643,5 @@ class DiscordScraper(object):
 
         # Return the response.
         return request.sendRequest(url)
+
+
